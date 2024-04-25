@@ -18,7 +18,7 @@ public class Jugadores {
     public String getNombre() {
         return nombre;
     }
-sdsd
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
