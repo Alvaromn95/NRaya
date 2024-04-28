@@ -1,15 +1,13 @@
 public class main {
+
     public static void main(String[] args) {
-        Jugadores j1 = new Jugadores("Israel", "X");
-        Jugadores j2 = new Jugadores("Pepe", "O");
-        Tablero t1 = new Tablero (3);
-        
+        Tablero t1 = new Tablero(3);
+        Juego juego1 = new Juego();
+        juego1.ElegirComiezo();
         do {
             t1.rellenar();
             t1.introducir();
-            t1.SumarTurnos();
+            juego1.CambiarTurno();
         } while (!t1.Fin());
-        System.out.println();
-        t1.rellenar();
     }
 }
