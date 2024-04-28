@@ -1,17 +1,13 @@
 public class Jugadores {
     private String nombre;
-    private enum Fichas{X,O};
-    Fichas fichas;
-    public Jugadores(String nombre, String fichas) {
-        this.nombre = nombre;
-        this.fichas = Fichas.valueOf(fichas);
-    }
+    private char fichas;
 
-    public Jugadores(Jugadores.Fichas fichas) {
+    public Jugadores(String nombre, char fichas) {
+        this.nombre = nombre;
         this.fichas = fichas;
     }
 
-    public Fichas getFichas() {
+    public char getFichas() {
         return fichas;
     }
 
@@ -23,4 +19,8 @@ public class Jugadores {
         this.nombre = nombre;
     }
 
+    public void setFichas(char fichas) {
+        this.fichas = fichas;
+    }
 }
+ 
