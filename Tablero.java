@@ -1,11 +1,11 @@
 import java.util.Scanner;
 public class Tablero {
-        char juego [][]=IntDimensiones(3);
+        char juego [][];
         int turno=0;
 
-    public char [][] IntDimensiones(int dimension){
-        char juego [][] = new char[dimension][dimension];
-        return juego;
+    
+    public Tablero(int dimension) {
+        juego = new char[dimension][dimension];
     }
     public void SumarTurnos (){
         turno++;
