@@ -97,27 +97,38 @@ public class Tablero extends Juego{
         }
         return false;
     }
-    private boolean ComprobarDiagonal() {
-        for (int i = 0; i < tablero.length; i++) {
-            int contX = 0;
-            int contO = 0;
-            for (int j = 0; j < tablero.length; j++) {
-                if (tablero[i + 1][j + 1] == 'X') {
-                    contX++;
-                } else if (tablero[i + 1][j + 1] == 'O') {
-                    contO++;
-                }
-            }
-            if (contO == tablero.length) {
-                System.out.println("Jugador O gana!");
-                return true;
-            } else if (contX == tablero.length) {
-                System.out.println("Jugador X gana!");
-                return true;
-            }
+    
+    private boolean comprobarDiagonales() {
+    int contXDiagonalPrincipal = 0;
+    int contODiagonalPrincipal = 0;
+    int contXDiagonalSecundaria = 0;
+    int contODiagonalSecundaria = 0;
+    int n = tablero.length;
+
+    for (int i = 0; i < n; i++) {
+        if (tablero[i][i] == 'X') {
+            contXDiagonalPrincipal++;
+        } else if (tablero[i][i] == 'O') {
+            contODiagonalPrincipal++;
         }
-        return false;
+        if (tablero[i][n - 1 - i] == 'X') {
+            contXDiagonalSecundaria++;
+        } else if (tablero[i][n - 1 - i] == 'O') {
+            contODiagonalSecundaria++;
+        }
     }
+
+    if (contODiagonalPrincipal == n || contODiagonalSecundaria == n) {
+        System.out.println("Jugador O gana!");
+        return true;
+    } else if (contXDiagonalPrincipal == n || contXDiagonalSecundaria == n) {
+        System.out.println("Jugador X gana!");
+        return true;
+    }
+
+    return false;
+}
+ 
     public boolean Fin (){
         if(ComprobarCol()==true||ComprobarFilas()==true||Empate()==true){
             return true;
