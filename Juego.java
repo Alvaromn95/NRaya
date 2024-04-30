@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Juego {
     // Declaracion de las variables y objetos
-    Jugadores j1 = new Jugadores("israel", 'X');
-    Jugadores j2 = new Jugadores("pepe", 'O');
+    Jugadores j1 = new Jugadores("", 'X');
+    Jugadores j2 = new Jugadores("", 'O');
     Tablero [] arrayMesas;
 
     private void cantidadMesas (){

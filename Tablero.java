@@ -5,6 +5,8 @@ public class Tablero extends Juego {
     protected char tablero[][];
     protected boolean turno1;
     protected boolean turno2;
+    String nom1;
+    String nom2;
 
     public Tablero(int dimension) {
         tablero = new char[dimension][dimension];
@@ -30,9 +32,9 @@ public class Tablero extends Juego {
         Scanner leer = new Scanner(System.in);
         int fila = 0, columna = 0;
         if (turno1 == true) {
-            System.out.println("Jugador " + j1.getNombre() + "es tu turno ");
+            System.out.println("Jugador " + nom1 + " es tu turno ");
         } else {
-            System.out.println("Jugador " + j2.getNombre() + "es tu turno ");
+            System.out.println("Jugador " + nom2 + " es tu turno ");
         }
         System.out.println("Introduce fila");
         fila = leer.nextInt();
@@ -67,11 +69,11 @@ public class Tablero extends Juego {
     public boolean ElegirComiezo() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Jugador 1,introduzca su nombre");
-        String nom1;
+        
         nom1=leer.next();
         System.out.println("El jugador 1 es " + nom1);
         System.out.println("Jugador 2,introduzca su nombre");
-        String nom2;
+      
         nom2=leer.next();
         System.out.println("El jugador 2 es " + nom2);
         System.out.println("Quien quiere comenzar,el 1 o el 2?");
