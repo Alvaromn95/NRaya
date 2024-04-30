@@ -28,7 +28,7 @@ public class Tablero extends Juego {
         System.out.println();
     }
 
-    public void introducirFichas() {
+    public void introducirFichas() { 
         Scanner leer = new Scanner(System.in);
         int fila = 0, columna = 0;
         if (turno1 == true) {
