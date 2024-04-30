@@ -1,7 +1,9 @@
-public class Jugadores {
+public class Jugadores{
+    // VARIABLES
     private String nombre;
     private char fichas;
 
+    // CONSTRUCTORES
     public Jugadores(String nombre, char fichas) {
         this.nombre = nombre;
         this.fichas = fichas;
@@ -14,13 +16,4 @@ public class Jugadores {
     public String getNombre() {
         return nombre;
     }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public void setFichas(char fichas) {
-        this.fichas = fichas;
-    }
 }
- 

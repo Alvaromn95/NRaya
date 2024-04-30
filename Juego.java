@@ -1,50 +1,47 @@
+import java.util.Scanner;
 
-    import java.util.Scanner;
+public class Juego {
+    // Declaracion de las variables y objetos
+    Jugadores j1 = new Jugadores("israel", 'X');
+    Jugadores j2 = new Jugadores("pepe", 'O');
+    Tablero [] arrayMesas;
 
-    public class Juego {
-        // Declaracion de las variables y objetos
-        Jugadores j1 = new Jugadores("israel", 'X');
-        Jugadores j2 = new Jugadores("pepe", 'O');
-        protected boolean turno1=false;
-        protected boolean turno2=false;
-    
-        //Metodo para cambiar de turno
-        public boolean CambiarTurno(){
-            if(turno1==false){
-                turno1=true;
-                turno2=false;
-                return turno1;
-            }else{
-                turno2=true;
-                turno1=false;
-                return turno2;
+    private void cantidadMesas (){
+        Scanner leer=new Scanner(System.in);
+        System.out.println("Cuantos juegos quieres a la vez?");
+        int num = leer.nextInt();
+        arrayMesas = new Tablero[num];
+        int cont=1;
+        for (int i = 0; i < arrayMesas.length; i++) {
+            System.out.println("De cuanto quieres que sea el "+ cont + " tablero?");
+            cont++;
+            int numTab = leer.nextInt();
+            arrayMesas[i]=new Tablero(numTab);
+            arrayMesas[i].ElegirComiezo();
+        }
+    }
+
+    private boolean finJuego(){
+        int cont=0;
+        for (int i = 0; i < arrayMesas.length; i++){
+            if(arrayMesas[i].Fin()){
+                cont++;
             }
         }
-    
-        // Metodo para elegir quien empieza
-        public boolean ElegirComiezo(){
-            Scanner leer=new Scanner(System.in);
-            System.out.println("¿Quien quiere comenzar?");
-            int num = leer.nextInt();
-            if (num==1){
-                turno1=true;
-                turno2=false;
-                return turno1;
-            }else{
-                turno2=true;
-                turno1=false;
-                return turno2;
-            }
+        if (cont==arrayMesas.length){
+            return true;
         }
-    
-        /*  Segunda Opcion cambio de turno
-    
-            if(turno % 2 == 0){
-                j1.getFichas();
-                jugador=1;
-            }else{
-                jugador=2;
-                j2.getFichas();
+        return false;
+    }
+
+    public void partida(){
+        cantidadMesas();
+        do{
+            for (int i = 0; i < arrayMesas.length; i++){
+                arrayMesas[i].rellenar();
+                arrayMesas[i].introducir();
+                arrayMesas[i].CambiarTurno();
             }
-            */
+        }while (!finJuego());
+    }
 }

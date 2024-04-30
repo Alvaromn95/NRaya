@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class tresenraya {
     public static void main(String[] args) {
@@ -7,7 +7,7 @@ public class tresenraya {
         int columna = 0;
         int dimension = 0;
 
-        System.out.println("Introduce la dimension del N en raya");
+        System.out.println("Introduce la dimension del tablero");
         Scanner leer=new Scanner(System.in);
         dimension=leer.nextInt();
 
@@ -140,3 +140,4 @@ public class tresenraya {
     }
     
 }
+*/
