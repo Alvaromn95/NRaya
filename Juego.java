@@ -4,43 +4,43 @@ public class Juego {
     // Declaracion de las variables y objetos
     Jugadores j1 = new Jugadores("", 'X');
     Jugadores j2 = new Jugadores("", 'O');
-    Tablero [] arrayMesas;
+    Tablero [] numeroJuegos;
 
-    private void cantidadMesas (){
+    private void numeroJuegos(){
         Scanner leer=new Scanner(System.in);
-        System.out.println("Cuantos juegos quieres a la vez?");
+        System.out.println("Cuantos juegos quieres jugar?");
         int num = leer.nextInt();
-        arrayMesas = new Tablero[num];
+        numeroJuegos = new Tablero[num];
         int cont=1;
-        for (int i = 0; i < arrayMesas.length; i++) {
+        for (int i = 0; i < numeroJuegos.length; i++) {
             System.out.println("De cuanto quieres que sea el "+ cont + " tablero?");
             cont++;
             int numTab = leer.nextInt();
-            arrayMesas[i]=new Tablero(numTab);
-            arrayMesas[i].ElegirComiezo();
+            numeroJuegos[i]=new Tablero(numTab);
+            numeroJuegos[i].ElegirComiezo();
         }
     }
 
     private boolean finJuego(){
         int cont=0;
-        for (int i = 0; i < arrayMesas.length; i++){
-            if(arrayMesas[i].Fin()){
+        for (int i = 0; i < numeroJuegos.length; i++){
+            if(numeroJuegos[i].Fin()){
                 cont++;
             }
         }
-        if (cont==arrayMesas.length){
+        if (cont==numeroJuegos.length){
             return true;
         }
         return false;
     }
 
     public void partida(){
-        cantidadMesas();
+        numeroJuegos();
         do{
-            for (int i = 0; i < arrayMesas.length; i++){
-                arrayMesas[i].rellenar();
-                arrayMesas[i].introducir();
-                arrayMesas[i].CambiarTurno();
+            for (int i = 0; i < numeroJuegos.length; i++){
+                numeroJuegos[i].rellenar();
+                numeroJuegos[i].introducir();
+                numeroJuegos[i].CambiarTurno();
             }
         }while (!finJuego());
     }
