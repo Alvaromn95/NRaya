@@ -2,8 +2,9 @@ import java.util.Scanner;
 
 public class Juego {
     // Declaracion de las variables y objetos
-    Jugadores j1 = new Jugadores("", 'X');
-    Jugadores j2 = new Jugadores("", 'O');
+    
+    Jugadores j1 = new Jugadores();
+    Jugadores j2 = new Jugadores();
     Tablero [] numeroJuegos;
 
     private void numeroJuegos(){
@@ -39,7 +40,7 @@ public class Juego {
         do{
             for (int i = 0; i < numeroJuegos.length; i++){
                 numeroJuegos[i].rellenar();
-                numeroJuegos[i].introducir();
+                numeroJuegos[i].introducirFichas();
                 numeroJuegos[i].CambiarTurno();
             }
         }while (!finJuego());
