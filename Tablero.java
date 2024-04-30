@@ -58,6 +58,7 @@ public class Tablero extends Juego {
         System.out.println("Jugador 1,introduzca su nombre");
 
         nom1 = leer.next();
+
         System.out.println("Indique cual quiere que sea su ficha");
         ficha1 = leer.next().charAt(0);
         System.out.println("El jugador 1 es " + nom1 + " y su ficha es " + ficha1);
@@ -100,7 +101,7 @@ public class Tablero extends Juego {
 
     private boolean Empate() {
         if (empate == tablero.length * tablero.length) {
-            System.out.println("Empate!");
+            System.out.println("Empate");
             return true;
         }
         return false;
@@ -118,10 +119,10 @@ public class Tablero extends Juego {
                 }
             }
             if (contFicha2 == tablero.length) {
-                System.out.println(nom2 + "gana!");
+                System.out.println(nom2 + "ha ganado");
                 return true;
             } else if (contFicha1 == tablero.length) {
-                System.out.println(nom1 + " gana!");
+                System.out.println(nom1 + " ha ganado");
                 return true;
             }
         }
@@ -140,10 +141,10 @@ public class Tablero extends Juego {
                 }
             }
             if (contFicha2 == tablero.length) {
-                System.out.println(nom2 + "gana!");
+                System.out.println(nom2 + " ha ganado");
                 return true;
             } else if (contFicha1 == tablero.length) {
-                System.out.println(nom1 + " gana!");
+                System.out.println(nom1 + " ha ganado");
                 return true;
             }
         }
@@ -170,10 +171,10 @@ public class Tablero extends Juego {
         }
 
         if (contFicha2DiagonalPrincipal == tablero.length || contFicha2DiagonalSecundaria == tablero.length) {
-            System.out.println(nom2 + "gana!");
+            System.out.println(nom2 + "ha ganado");
             return true;
         } else if (contFicha1DiagonalPrincipal == tablero.length || contFicha1DiagonalSecundaria == tablero.length) {
-            System.out.println(nom1 + " gana!");
+            System.out.println(nom1 + " ha ganado");
             return true;
         }
 
