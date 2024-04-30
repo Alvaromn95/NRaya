@@ -14,7 +14,6 @@ public class Tablero extends Juego {
         tablero = new char[dimension][dimension];
     }
 
-    // Metodo para mostrar el tablero del juego
     public void rellenar() {
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero.length; j++) {
@@ -29,7 +28,6 @@ public class Tablero extends Juego {
         System.out.println();
     }
 
-    // Metodo introducir fichas en el tablero
     public void introducirFichas() {
         Scanner leer = new Scanner(System.in);
         int fila = 0, columna = 0;
@@ -55,7 +53,6 @@ public class Tablero extends Juego {
         }
     }
 
-    // Metodo para elegir quien empieza
     public boolean ElegirComiezo() {
         Scanner leer = new Scanner(System.in);
         System.out.println("Jugador 1,introduzca su nombre");
@@ -67,7 +64,7 @@ public class Tablero extends Juego {
         System.out.println("Jugador 2,introduzca su nombre");
 
         nom2 = leer.next();
-        
+
         System.out.println("Indique cual quiere que sea su ficha");
         ficha2 = leer.next().charAt(0);
         System.out.println("El jugador 1 es " + nom2 + " y su ficha es " + ficha2);
@@ -89,6 +86,7 @@ public class Tablero extends Juego {
         }
         return false;
     }
+
     public boolean CambiarTurno() {
         if (turno1 == false) {
             turno1 = true;
@@ -111,19 +109,19 @@ public class Tablero extends Juego {
     private boolean ComprobarFilas() {
         for (int i = 0; i < tablero.length; i++) {
             int contFicha1 = 0;
-            int contO = 0;
+            int contFicha2 = 0;
             for (int j = 0; j < tablero.length; j++) {
                 if (tablero[i][j] == ficha1) {
                     contFicha1++;
-                } else if (tablero[i][j] == 'O') {
-                    contO++;
+                } else if (tablero[i][j] == ficha2) {
+                    contFicha2++;
                 }
             }
-            if (contO == tablero.length) {
-                System.out.println("Jugador O gana!");
+            if (contFicha2 == tablero.length) {
+                System.out.println(nom2 + "gana!");
                 return true;
             } else if (contFicha1 == tablero.length) {
-                System.out.println("Jugador X gana!");
+                System.out.println(nom1 + " gana!");
                 return true;
             }
         }
@@ -132,20 +130,20 @@ public class Tablero extends Juego {
 
     private boolean ComprobarCol() {
         for (int i = 0; i < tablero.length; i++) {
-            int contFicha1= 0;
-            int contO = 0;
+            int contFicha1 = 0;
+            int contFicha2 = 0;
             for (int j = 0; j < tablero.length; j++) {
                 if (tablero[j][i] == ficha1) {
                     contFicha1++;
-                } else if (tablero[j][i] == 'O') {
-                    contO++;
+                } else if (tablero[j][i] == ficha2) {
+                    contFicha2++;
                 }
             }
-            if (contO == tablero.length) {
-                System.out.println("Jugador O gana!");
+            if (contFicha2 == tablero.length) {
+                System.out.println(nom2 + "gana!");
                 return true;
             } else if (contFicha1 == tablero.length) {
-                System.out.println("Jugador X gana!");
+                System.out.println(nom1 + " gana!");
                 return true;
             }
         }
@@ -154,28 +152,28 @@ public class Tablero extends Juego {
 
     private boolean comprobarDiagonales() {
         int contFicha1DiagonalPrincipal = 0;
-        int contODiagonalPrincipal = 0;
+        int contFicha2DiagonalPrincipal = 0;
         int contFicha1DiagonalSecundaria = 0;
-        int contODiagonalSecundaria = 0;
+        int contFicha2DiagonalSecundaria = 0;
 
         for (int i = 0; i < tablero.length; i++) {
             if (tablero[i][i] == ficha1) {
                 contFicha1DiagonalPrincipal++;
-            } else if (tablero[i][i] == 'O') {
-                contODiagonalPrincipal++;
+            } else if (tablero[i][i] == ficha2) {
+                contFicha2DiagonalPrincipal++;
             }
             if (tablero[i][tablero.length - 1 - i] == ficha1) {
                 contFicha1DiagonalSecundaria++;
-            } else if (tablero[i][tablero.length - 1 - i] == 'O') {
-                contODiagonalSecundaria++;
+            } else if (tablero[i][tablero.length - 1 - i] == ficha2) {
+                contFicha2DiagonalSecundaria++;
             }
         }
 
-        if (contODiagonalPrincipal == tablero.length || contODiagonalSecundaria == tablero.length) {
-            System.out.println("Jugador O gana!");
+        if (contFicha2DiagonalPrincipal == tablero.length || contFicha2DiagonalSecundaria == tablero.length) {
+            System.out.println(nom2 + "gana!");
             return true;
         } else if (contFicha1DiagonalPrincipal == tablero.length || contFicha1DiagonalSecundaria == tablero.length) {
-            System.out.println("Jugador X gana!");
+            System.out.println(nom1 + " gana!");
             return true;
         }
 
