@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Tablero extends Juego {
+public class NRaya extends Juegos {
     private int empate = 0;
     protected char tablero[][];
     String nom1;
@@ -9,9 +9,10 @@ public class Tablero extends Juego {
     char ficha2;
     protected boolean turno1;
     protected boolean turno2;
-
-    public Tablero(int dimension) {
-        tablero = new char[dimension][dimension];
+    boolean terminarJuego = false;
+    
+    public NRaya(int tamTab){
+        tablero = new char[tamTab][tamTab];
     }
 
     public void rellenar() {
@@ -99,15 +100,9 @@ public class Tablero extends Juego {
         return turno1;
     }
 
-    private boolean Empate() {
-        if (empate == tablero.length * tablero.length) {
-            System.out.println("Empate");
-            return true;
-        }
-        return false;
-    }
+    
 
-    private boolean ComprobarFilas() {
+    public boolean ComprobarFilas() {
         for (int i = 0; i < tablero.length; i++) {
             int contFicha1 = 0;
             int contFicha2 = 0;
@@ -129,7 +124,7 @@ public class Tablero extends Juego {
         return false;
     }
 
-    private boolean ComprobarCol() {
+    public boolean ComprobarCol() {
         for (int i = 0; i < tablero.length; i++) {
             int contFicha1 = 0;
             int contFicha2 = 0;
@@ -151,7 +146,7 @@ public class Tablero extends Juego {
         return false;
     }
 
-    private boolean comprobarDiagonales() {
+    public boolean comprobarDiagonales() {
         int contFicha1DiagonalPrincipal = 0;
         int contFicha2DiagonalPrincipal = 0;
         int contFicha1DiagonalSecundaria = 0;
@@ -180,11 +175,37 @@ public class Tablero extends Juego {
 
         return false;
     }
-
-    public boolean Fin() {
-        if (ComprobarCol() == true || ComprobarFilas() == true || Empate() == true || comprobarDiagonales() == true) {
+    public boolean Empate() {
+        if (empate == tablero.length * tablero.length) {
+            System.out.println("Empate");
             return true;
         }
         return false;
     }
+
+    int cont = 1;
+    public void jugar() {
+        
+        
+        if(cont == 0) {
+            ElegirComiezo();
+            cont++;
+       
+            }
+            rellenar();
+            introducirFichas();
+            CambiarTurno();
+            terminarJuego();
+}
+public boolean cambioJuego(){
+    return terminarJuego;
+}
+public boolean terminarJuego() {
+    if (ComprobarCol() == true || ComprobarFilas() == true || Empate() == true || comprobarDiagonales() == true) {
+        terminarJuego=true;
+        return true;
+    }
+    terminarJuego=false;
+    return false;
+}
 }

@@ -4,4 +4,6 @@ public class main {
         Juego juego1 = new Juego();
         juego1.partida();
     }
+
+
 }
